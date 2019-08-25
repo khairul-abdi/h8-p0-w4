@@ -1,21 +1,5 @@
 function cariModus(arr) {
 
-    // var done = false
-    // while(!done){
-    //     done = true
-
-    //     for(var i = 0; i<arr.length; i++){
-    //         if(arr[i-1] > arr[i]){
-    //             done = false
-
-    //             var temp = arr[i-1]
-    //             arr[i-1] = arr[i]
-    //             arr[i] = temp
-    //         }
-    //     }
-
-    // }
-
     var angka = []
     var count = []
     var isFind = false
@@ -40,34 +24,8 @@ function cariModus(arr) {
         isFind = false
     }
 
-    // console.log("Angka : ", angka)
-    // console.log("Count : ", count)
-    // var max = count[0] 
-    // var indexMax = 0;
-    // var minNol = -1
-
-    var max = 1;
-    var indexMax = -1
-
-    for(var k = 0; k<count.length; k++){
-
-        if(max < count[k]){
-            max = count[k]
-            indexMax = k;
-        }
-    }
-
-
-    if (max === 1) {
-        return -1
-    }else if(max === arr.length ){
-        return -1
-    }else {
-        return angka[indexMax]
-    }
-
-
-    
+    console.log('count:', count)
+    console.log('angka: ', angka)
 
 }
   

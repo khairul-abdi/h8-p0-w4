@@ -19,16 +19,16 @@ function fpb(angka1, angka2) {
         }
     }     
 
-    // console.log(resultAngka1)
-    // console.log(resultAngka2)
+    console.log(resultAngka1)
+    console.log(resultAngka2)
 
 
 
     for(var k = 0; k < resultAngka1.length; k++){
         for(var l = 0; l <resultAngka2.length; l++){
 
-            // console.log(resultAngka1[k])
-            // console.log(resultAngka2[l])
+            console.log('angka 1 ; ', resultAngka1[k])
+            console.log('angka 2 ; ', resultAngka2[l])
             if(resultAngka1[k] == resultAngka2[l]){
                 resultSementara.push(resultAngka1[k])
             }

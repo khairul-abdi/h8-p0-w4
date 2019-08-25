@@ -5,43 +5,41 @@ function countProfit(shoppers) {
                      ];
   
     var result = []
+    var leftOver = 0
+    var totalProfit = 0
     
-    
+    if(shoppers.length == 0){
+        return []
+    }
 
-    for(var j = 0; j < listBarang.length; j++){
-      // var obj = {}
-      var pembeli = []
-      var jumlahBarang = 0
-  
-    
-      for(var i = 0; i < shoppers.length; i++){
+    for(var i = 0; i < listBarang.length; i++){
+        var jumlahBeli = 0
+        var pembeli = []
+        for(var j = 0; j < shoppers.length; j++){
 
-          if(shoppers[i].product === listBarang[j][0] && jumlahBarang + shoppers[i].amount <= listBarang[j][2]){
-              pembeli.push(shoppers[i].name)
-              jumlahBarang += shoppers[i].amount 
-          }
-  
-          var obj = {
+            if(shoppers[j]['product'] == listBarang[i][0] && (jumlahBeli + shoppers[j]['amount']) <= listBarang[i][2] ){
+                pembeli.push(shoppers[j]['name'])
+                jumlahBeli += shoppers[j]['amount']
+            }
 
-            product: listBarang[j][0],
+        }
+        
+        var obj = {
+            product : listBarang[i][0],
             shoppers: pembeli,
-            leftOver: listBarang[j][2] - jumlahBarang,
-            totalProfit: jumlahBarang * listBarang[j][1]
-          }
+            leftOver: listBarang[i][2] - jumlahBeli,
+            totalProfit: jumlahBeli * listBarang[i][1]
+        }
 
-      }
-      result.push(obj)
-    
-    }   
+        result.push(obj)
+    }
+
     return result
+
 }
-
-
-
+  
   // TEST CASES
-
-console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 2}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 3}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 2}]));
-
+  console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 2}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 3}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 2}]));
   //[ { product: 'Sepatu Stacattu',
   //   shoppers: [ 'Windi', 'Vanessa' ],
   //   leftOver: 5,

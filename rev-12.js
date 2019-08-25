@@ -4,44 +4,44 @@ function countProfit(shoppers) {
                        ['Sweater Uniklooh', 175000, 1]
                      ];
   
+    
     var result = []
     
+    if(shoppers.length == 0){
+        return []
+    }else{
+
     
+    for(var i = 0; i < listBarang.length; i++){
+        var pembeli = []
+        jumlahBeli = 0
 
-    for(var j = 0; j < listBarang.length; j++){
-      // var obj = {}
-      var pembeli = []
-      var jumlahBarang = 0
-  
-    
-      for(var i = 0; i < shoppers.length; i++){
+        for(var j = 0; j < shoppers.length; j++){
+           if(shoppers[j]['product'] == listBarang[i][0] && (jumlahBeli + shoppers[j]['amount']) <= listBarang[i][2]){
+               pembeli.push(shoppers[j]['name'])
+               jumlahBeli += shoppers[j].amount
+           }
+           
+            
+            var obj = {
+                product: listBarang[i][0],
+                shoppers: pembeli,
+                leftOver: listBarang[i][2] - jumlahBeli,
+                totalProfit: jumlahBeli * listBarang[i][1]
+            }
+        }
 
-          if(shoppers[i].product === listBarang[j][0] && jumlahBarang + shoppers[i].amount <= listBarang[j][2]){
-              pembeli.push(shoppers[i].name)
-              jumlahBarang += shoppers[i].amount 
-          }
-  
-          var obj = {
-
-            product: listBarang[j][0],
-            shoppers: pembeli,
-            leftOver: listBarang[j][2] - jumlahBarang,
-            totalProfit: jumlahBarang * listBarang[j][1]
-          }
-
-      }
-      result.push(obj)
-    
-    }   
-    return result
+        result.push(obj)
+    }
 }
+                     
+    // return JSON.stringify(result, null, 2)
+    return result
 
-
-
+  }
+  
   // TEST CASES
-
-console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 2}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 3}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 2}]));
-
+  console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 2}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 3}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 2}]));
   //[ { product: 'Sepatu Stacattu',
   //   shoppers: [ 'Windi', 'Vanessa' ],
   //   leftOver: 5,

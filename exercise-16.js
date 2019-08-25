@@ -24,13 +24,13 @@ function graduates (students) {
         }else{
             if(students[i].score > 75){
 
-                if( students[i].score > 75){
+                // if( students[i].score > 75){
                     var student = {
                         name: students[i].name,
                         score: students[i].score
                     }
                     output[students[i].class].push(student)
-                }
+                // }
             }
         }
 
